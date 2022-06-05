@@ -1,0 +1,2 @@
+# Gerenciales
+Proyecto informático SIG
