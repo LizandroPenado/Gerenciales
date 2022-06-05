@@ -3,6 +3,12 @@
 use App\Http\Controllers\EspeciesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\CobradorController;
+use App\Http\Controllers\EspecieController;
+use App\Http\Controllers\InventarioZonaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +31,15 @@ use Illuminate\Support\Facades\Route;
 //Route::resource('/home', 'HomeController@index');//->name('home');
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/mantenimientoUser', [UsersController::class, 'mantenimientoUser']);
+Route::get('/ETL', [Controller::class, 'ETL']);
+Route::get('/respaldo_restauracion', [Controller::class, 'respaldo_restauracion']);
+Route::get('/cobro_especies', [CobradorController::class, 'cobro_especies']);
+Route::get('/inventario_especies', [EspecieController::class, 'inventario_especies']);
+Route::get('/especies_disponibles', [EspecieController::class, 'especies_disponibles']);
+Route::get('/cobros_zonas', [CobradorController::class, 'cobros_zonas']);
+Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendidas_zonas']);
+Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas']);
 
 Route::resource('users', 'UsersController');//->middleware('can:isAdmin');
 Route::resource('roles', 'RolesController');//->middleware('can:isAdmin');

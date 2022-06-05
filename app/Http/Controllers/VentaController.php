@@ -16,6 +16,10 @@ class VentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function especies_vendidas_zonas()
+    {
+        return view('reportes.especies_vendidas_zonas');
+    }
     public function index()
     {
         $ventas = Venta::orderBy('id', 'desc')->get();

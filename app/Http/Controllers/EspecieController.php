@@ -13,11 +13,18 @@ class EspecieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    //public function __construct()
+    //{
+    //    $this->middleware('auth');
+    //}
+    public function inventario_especies()
     {
-        $this->middleware('auth');
+        return view('reportes.inventario_especies');
     }
-
+    public function especies_disponibles()
+    {
+        return view('reportes.especies_disponibles');
+    }
     public function index()
     {
         $especie = Especie::orderBy('id', 'desc')->where('estado',1)->get();
