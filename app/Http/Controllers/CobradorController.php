@@ -13,6 +13,14 @@ class CobradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function cobro_especies()
+    {
+        return view('reportes.cobro_especies');
+    }
+    public function cobros_zonas()
+    {
+        return view('reportes.cobros_zonas');
+    }
     public function index()
     {
         $cobrador = Cobrador::orderBy('id', 'desc')->where('estado',1)->get();

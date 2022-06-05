@@ -14,6 +14,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function mantenimientoUser(){//menu Admin Mantenimiento de usuarios
+        return view('/mantenimientoUser');
+    }
+
     public function index()
     {
         $users = User::orderBy('id', 'asc')->where('estado',1)->get();

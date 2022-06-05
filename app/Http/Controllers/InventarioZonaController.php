@@ -15,6 +15,10 @@ class InventarioZonaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function inventario_zonas()
+    { 
+        return view('reportes.inventario_zonas');
+    }
     public function index()
     { 
         $inventarioZonas = DB::select('SELECT zonas.nombre AS zona,especies.nombre AS nombreEspecie,SUM(inventario_zonas.cantidad) AS cantidad FROM inventario_zonas INNER JOIN zonas ON inventario_zonas.zona = zonas.id INNER JOIN especies ON inventario_zonas.nombreEspecie = especies.id GROUP BY inventario_zonas.zona,inventario_zonas.nombreEspecie');
