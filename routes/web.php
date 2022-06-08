@@ -39,7 +39,7 @@ Route::get('/inventario_especies', [EspecieController::class, 'inventario_especi
 Route::get('/especies_disponibles', [EspecieController::class, 'especies_disponibles']);
 Route::get('/cobros_zonas', [CobradorController::class, 'cobros_zonas']);
 Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendidas_zonas']);
-Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas']);
+Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zona');
 
 Route::resource('users', 'UsersController');//->middleware('can:isAdmin');
 Route::resource('roles', 'RolesController');//->middleware('can:isAdmin');
