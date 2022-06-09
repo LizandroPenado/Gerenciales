@@ -1,0 +1,22 @@
+.imagen-zona {
+    width: 400px;
+    height: 400px;
+}
+
+.bg-filtros {
+    background-color: rgb(129, 166, 236);
+    border-radius: 30px 30px 30px 30px;
+    color: white;
+}
+
+.logo-fondo {
+    background-color: rgb(240, 242, 241);
+    background-image: url(logo.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.titulo-reporte{
+    color: rgb(129, 166, 236);
+}
