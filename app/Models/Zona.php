@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Zona extends Model
 {
     protected $fillable = [
-        'id', 'nombre', 'descripcion','updated_at','created_at'
+        'id', 'nombre_zona', 'descripcion_zona', 'estado_zona', 'created_at','updated_at'
     ];
 
     public function cobradores()
