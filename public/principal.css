@@ -7,6 +7,7 @@
     background-color: rgb(129, 166, 236);
     border-radius: 30px 30px 30px 30px;
     color: white;
+    border: 1px black solid;
 }
 
 .logo-fondo {
@@ -36,4 +37,24 @@
 
 .card-edit{
     border-radius: 30px 30px 30px 30px !important;
+}
+
+.entidad{
+    color:whitesmoke;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
+
+.logo-reporte{
+    width: 150px;
+    height: 150px;
+    border-radius:  30px 30px 30px 30px ;
+}
+
+.titulo-reporte{
+    color: rgb(46, 74, 126);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: bold;
 }
