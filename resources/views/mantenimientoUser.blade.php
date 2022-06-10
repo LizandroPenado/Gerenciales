@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("mantenimiento usuarios");
-
-?>
+@section('content')
+<h1>Mantenimiento de usuario</h1>
+@endsection

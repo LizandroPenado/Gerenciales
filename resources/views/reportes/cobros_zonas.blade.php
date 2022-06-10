@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("cobros zonas");
-
-?>
+@section('content')
+<h1>Cobros de zonas</h1>
+@endsection

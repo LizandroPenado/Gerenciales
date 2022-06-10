@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("Respaldos y restauracion");
-
-?>
+@section('content')
+<h1>Respaldos y restauracion</h1>
+@endsection

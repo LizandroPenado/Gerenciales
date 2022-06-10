@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("especies vendidas por zonas");
-
-?>
+@section('content')
+<h1>Especies vendidas por zonas</h1>
+@endsection

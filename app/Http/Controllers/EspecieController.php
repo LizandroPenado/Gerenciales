@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Especie;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth\Rol;
 
 class EspecieController extends Controller
 {
@@ -19,11 +21,13 @@ class EspecieController extends Controller
     //}
     public function inventario_especies()
     {
-        return view('reportes.inventario_especies');
+
+        return view('reportes.inventario_especies', ['usuario' => Rol::rol()]);
     }
     public function especies_disponibles()
     {
-        return view('reportes.especies_disponibles');
+
+        return view('reportes.especies_disponibles', ['usuario' => Rol::rol()]);
     }
     public function index()
     {

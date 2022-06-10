@@ -30,16 +30,16 @@ use Illuminate\Support\Facades\Route;
 
 //Route::resource('/home', 'HomeController@index');//->name('home');
 Route::get('/', [LoginController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/mantenimientoUser', [UsersController::class, 'mantenimientoUser']);
-Route::get('/ETL', [Controller::class, 'ETL']);
-Route::get('/respaldo_restauracion', [Controller::class, 'respaldo_restauracion']);
-Route::get('/cobro_especies', [CobradorController::class, 'cobro_especies']);
-Route::get('/inventario_especies', [EspecieController::class, 'inventario_especies']);
-Route::get('/especies_disponibles', [EspecieController::class, 'especies_disponibles']);
-Route::get('/cobros_zonas', [CobradorController::class, 'cobros_zonas']);
-Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendidas_zonas']);
-Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas']);
+//Route::get('/home', [HomeController::class, 'index']);
+Route::get('/mantenimientoUser', [UsersController::class, 'mantenimientoUser'])->name('mantenimientoUser');
+Route::get('/ETL', [Controller::class, 'ETL'])->name('ETL');
+Route::get('/respaldo_restauracion', [Controller::class, 'respaldo_restauracion'])->name('respaldo_restauracion');
+Route::get('/cobro_especies', [CobradorController::class, 'cobro_especies'])->name('cobro_especies');
+Route::get('/inventario_especies', [EspecieController::class, 'inventario_especies'])->name('inventario_especies');
+Route::get('/especies_disponibles', [EspecieController::class, 'especies_disponibles'])->name('especies_disponibles');
+Route::get('/cobros_zonas', [CobradorController::class, 'cobros_zonas'])->name('cobros_zonas');
+Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendidas_zonas'])->name('especies_vendidas_zonas');
+Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zonas');
 
 Route::resource('users', 'UsersController');//->middleware('can:isAdmin');
 Route::resource('roles', 'RolesController');//->middleware('can:isAdmin');
@@ -67,3 +67,8 @@ Route::resource('cuenta', 'CuentaController');//->middleware('especies:isAdmin,i
 Route::resource('cheque', 'ChequeController');//->middleware('especies:isAdmin,isOperativo');
 
 Route::post('/banco', 'ChequeController@getCuentasBancarias');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

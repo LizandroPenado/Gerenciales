@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("inventario zonas");
-
-?>
+@section('content')
+<h1>Inventario zonas</h1>
+@endsection

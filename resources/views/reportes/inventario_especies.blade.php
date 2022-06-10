@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("inventario especies");
-
-?>
+@section('content')
+<h1>Inventario de especies</h1>
+@endsection

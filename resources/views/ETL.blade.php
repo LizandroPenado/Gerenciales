@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("ETL");
-
-?>
+@section('content')
+<h1>ETL</h1>
+@endsection
