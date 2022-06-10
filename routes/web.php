@@ -40,6 +40,8 @@ Route::get('/especies_disponibles', [EspecieController::class, 'especies_disponi
 Route::get('/cobros_zonas', [CobradorController::class, 'cobros_zonas'])->name('cobros_zonas');
 Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendidas_zonas'])->name('especies_vendidas_zonas');
 Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zonas');
+//Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zona');
+Route::get('/ETL/carga', [Controller::class, 'ejecucion'])->name('ejecucion');
 
 Route::resource('users', 'UsersController');//->middleware('can:isAdmin');
 Route::resource('roles', 'RolesController');//->middleware('can:isAdmin');
