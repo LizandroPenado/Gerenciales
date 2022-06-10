@@ -6,6 +6,8 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth\Rol;
 
 class UsersController extends Controller
 {
@@ -15,7 +17,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mantenimientoUser(){//menu Admin Mantenimiento de usuarios
-        return view('/mantenimientoUser');
+
+        return view('/mantenimientoUser', ['usuario' => Rol::rol()]);
     }
 
     public function index()

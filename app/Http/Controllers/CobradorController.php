@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Cobrador;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth\Rol;
 
 class CobradorController extends Controller
 {
@@ -15,11 +17,11 @@ class CobradorController extends Controller
      */
     public function cobro_especies()
     {
-        return view('reportes.cobro_especies');
+        return view('reportes.cobro_especies', ['usuario' => Rol::rol()]);
     }
     public function cobros_zonas()
     {
-        return view('reportes.cobros_zonas');
+        return view('reportes.cobros_zonas', ['usuario' => Rol::rol()]);
     }
     public function index()
     {

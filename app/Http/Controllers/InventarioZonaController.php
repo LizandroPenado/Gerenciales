@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\InventarioZona;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth\Rol;
 
 
 class InventarioZonaController extends Controller
@@ -103,7 +104,7 @@ class InventarioZonaController extends Controller
         }
 
         //return view('admin.inventarioZona.index',['inventario' => $inventario]);
-        return view('reportes.inventario_zonas')->with("inventario", $inventario)->with("zona", $zona);
+        return view('reportes.inventario_zonas', ['usuario' => Rol::rol()])->with("inventario", $inventario)->with("zona", $zona);
         //return view('reportes.inventario_zonas');
     }
     public function index()

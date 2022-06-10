@@ -1,5 +1,5 @@
-<?php
+@extends('layouts.app', $usuario)
 
-echo("cobrador especies");
-
-?>
+@section('content')
+<h1>Cobros de especies</h1>
+@endsection

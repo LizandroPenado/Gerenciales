@@ -1,29 +1,7 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app', $usuario)
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-    <title>Inventario</title>
-
-    <link type="text/css" rel="stylesheet" href="{{ asset('principal.css') }}" />
-
-    <!-- Boostrap-->
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-    <!-- JSGrid-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-
-</head>
-
-<body class="logo-fondo">
     <div class="text-center pt-3 text-primary">
         <h1 class="titulo-reporte">Reporte de inventario de especies por zona</h1>
     </div>
@@ -35,7 +13,7 @@
         </div>
         <div class="col-sm-5 align-self-center">
             <h3>Filtros</h3>
-            <form action="{{route('inventario_zona') }}" method="GET" class="container-fluid bg-filtros pt-2">
+            <form action="{{route('inventario_zonas') }}" method="GET" class="container-fluid bg-filtros pt-2">
                 <div class="p-2 row">
                     <label class="col">Digite el costo</label>
                     <input type="text" class="form-control col" placeholder="10.10" id="costo" name="costo" autocomplete="none" />
@@ -104,67 +82,5 @@
             </tbody>
         </table>
     </div>
-    <!--  <div class="container-fluid container pt-3">
-        <div class="pt-3" id="grid_table">
-
-        </div>
-    </div> -->
-</body>
-
-</html>
-
-<script type="text/javascript">
-    /*  $('#grid_table').jsGrid({
-
-        width: "100%",
-        height: "100%",
-
-        //filtering: true,
-        sorting: true,
-        paging: true,
-        //autoload: true,
-        pageSize: 10,
-        pageButtonCount: 5,
-        data: @json($inventario),
-
-
-        fields: [{
-                name: "nombre",
-                type: "text",
-            },
-            {
-                name: "costo",
-                type: "text",
-            },
-            {
-                name: "valorVenta",
-                type: "text",
-                validate: function(value) {
-                    if (value > 0) {
-                        return true;
-                    }
-                }
-            },
-            {
-                name: "cantidad",
-                type: "text",
-            },
-            {
-                name: "estado",
-                type: "text",
-                validate: function(value) {
-                    if (value > 0) {
-                        return "Inventario";
-                    }
-                    return "No inventario"
-                }
-            },
-             {
-                 type: "control",
-                 modeSwitchButton: false,
-                 editButton: false,
-                 deleteButton: false
-             }
-        ]
-    }); */
-</script>
+    
+@endsection
