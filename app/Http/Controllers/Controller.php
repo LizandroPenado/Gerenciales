@@ -12,17 +12,24 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Auth\Rol;
-
+use App\Models\Bitacora;
+use Illuminate\Support\Facades\Date;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
-    public function ETL(){//menu Admin ETL
-        
-        return view('/ETL', ['usuario' => Rol::rol()]);
+
+    public function ETL()
+    {
+        $resultado = "";
+        $bitacora = DB::table('bitacoras')
+            ->join('users', 'users.id', "=", 'bitacoras.user_id')
+            ->select('bitacoras.fecha_creacion', 'bitacoras.hora_bitacoora', 'bitacoras.descripcion_bitacora', 'users.name')
+            ->get();
+        return view('/ETL', ['usuario' => Rol::rol()])->with("bitacora", $bitacora)->with('resultado', $resultado);
     }
-    public function respaldo_restauracion(){//menu Admin respaldo y restauracion
+    public function respaldo_restauracion()
+    {
 
         return view('/respaldo_restauracion', ['usuario' => Rol::rol()]);
     }
@@ -105,7 +112,7 @@ class Controller extends BaseController
         }
 
         //Tabla ventas
-       /*  $query = "SELECT * FROM ventas";
+        /*  $query = "SELECT * FROM ventas";
 
         $result = $conn->query($query);
         while ($fila = $result->fetch_array()) {
@@ -155,8 +162,8 @@ class Controller extends BaseController
             $especie->save();
         }
 
-         //Tabla especies
-         /* foreach ($ventas as $valor) {
+        //Tabla especies
+        /* foreach ($ventas as $valor) {
             $venta = new Venta();
             $venta->id = $valor["id"];
             $venta->name = $valor["name"];
@@ -168,9 +175,23 @@ class Controller extends BaseController
             $venta->updated_at = null;
             $especie->save();
         } */
+        $usuario = 1;
 
-        //FALTA INSERTAR UNA BITACORA NUEVA Y DEBE REDIRECCIONAR A ESA PANTALLA
+        //Registro en la bitacora
+        $fecha = date("Y-m-d");
+        $hora = date("H:i:s");
+        $bitacora = new Bitacora();
+        $bitacora->fecha_creacion = $fecha;
+        $bitacora->hora_bitacoora = $hora;
+        $bitacora->descripcion_bitacora = "Procedimiento ETL";
+        $bitacora->user_id = $usuario;
+        $bitacora->save();
 
-        return view('/finETL', ['usuario' => Rol::rol()]);
+        $resultado = "Se ha completado el proceso ETL";
+        $bitacora = DB::table('bitacoras')
+            ->join('users', 'users.id', "=", 'bitacoras.user_id')
+            ->select('bitacoras.fecha_creacion', 'bitacoras.hora_bitacoora', 'bitacoras.descripcion_bitacora', 'users.name')
+            ->get();
+        return view('/ETL', ['usuario' => Rol::rol()])->with('resultado', $resultado)->with("bitacora", $bitacora);
     }
 }
