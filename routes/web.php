@@ -42,6 +42,7 @@ Route::get('/especies_vendidas_zonas', [VentaController::class, 'especies_vendid
 Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zonas');
 //Route::get('/inventario_zonas', [InventarioZonaController::class, 'inventario_zonas'])->name('inventario_zona');
 Route::get('/ETL/carga', [Controller::class, 'ejecucion'])->name('ejecucion');
+Route::get('inventario_zonas_pdf', [InventarioZonaController::class, 'downloadPdf'])->name('inventario_zonas_pdf');
 
 Route::resource('users', 'UsersController');//->middleware('can:isAdmin');
 Route::resource('roles', 'RolesController');//->middleware('can:isAdmin');

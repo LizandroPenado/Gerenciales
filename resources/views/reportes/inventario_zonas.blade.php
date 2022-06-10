@@ -13,14 +13,14 @@
         </div>
         <div class="col-sm-5 align-self-center">
             <h3>Filtros</h3>
-            <form action="{{route('inventario_zonas') }}" method="GET" class="container-fluid bg-filtros pt-2">
+            <form action="{{route('inventario_zonas') }}" method="GET" class="was-validated container-fluid bg-filtros pt-2">
                 <div class="p-2 row">
                     <label class="col">Digite el costo</label>
-                    <input type="text" class="form-control col" placeholder="10.10" id="costo" name="costo" autocomplete="none" />
+                    <input type="number" class="form-control col" placeholder="10.10" id="costo" name="costo" autocomplete="none" step="0.01" min="0"/>
                 </div>
                 <div class="p-2 row">
                     <label class="col">Digite la cantidad</label>
-                    <input type="text" class="form-control col" placeholder="50" name="cantidad" id="cantidad" autocomplete="none" />
+                    <input type="number" class="form-control col" placeholder="50" name="cantidad" id="cantidad" autocomplete="none" min="0"/>
                 </div>
                 <div class="p-2 row">
                     <label class="col">Selecciones la zona</label>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="p-2 row">
                 <div class="col">
-                        <button class="btn btn-danger ">PDF</button>
+                        <a class="btn btn-danger" href="{{route('inventario_zonas_pdf') }}">PDF</a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Filtrar</button>

@@ -15,7 +15,7 @@
                             
 
                             <div class="p-5 text-center">
-                                <img src="{{ asset('img/logo.jpg') }}" class = "rounded col-3 ml-auto mr-auto">
+                                <img src="{{ asset('logo.jpg') }}" class = "rounded col-3 ml-auto mr-auto">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
