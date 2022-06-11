@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="text-center pt-3 text-primary">
-    <h1 class="titulo-reporte">Reporte de inventario de especies por zona</h1>
+    <h1 class="titulo-reporte">Reporte de especies pendientes de venta</h1>
 </div>
 <div class="row text-center pt-3 container-fluid">
     <div class="col-sm-7">

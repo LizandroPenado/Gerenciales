@@ -22,7 +22,7 @@ class CobradorController extends Controller
             $comparar = "<=";
         }
         $especie = DB::table('especies')
-            ->select('especies.id', 'especie.nombre_especie')
+            ->select('especies.id', 'especies.especie_nombre')
             ->get();
 
         /*  $inventario = DB::table('inventario_zonas')
@@ -31,13 +31,11 @@ class CobradorController extends Controller
             ->select('especies.nombre', 'especies.costo', 'especies.valorVenta', 'especies.cantidad', 'especies.estado', 'zonas.nombre')
             ->get(); */
 
-        if ($request->especie_id != "" && $request->costo != "" && $request->cantidad != "") {
-
-            $inventario = DB::table('inventario_zonas')
-                ->join('especies', 'especies.inventario_id', '=', 'inventario_zonas.id')
-                ->join('zonas', 'zonas.id', '=', 'inventario_zonas.zona_id')
-                ->select('especies.nombre_especie', 'especies.costo_especie', 'especies.valorVenta', 'especies.cantidad_especie', 'inventario_zonas.nombre_inventario', 'zonas.nombre_zona')
-                ->where('zonas.id', '=', $request->zona_id)
+        if ($request->estado_especie != "" && $request->costo != "" && $request->cantidad != "") {
+            $inventario = DB::table('ventas')
+                ->join('especies', 'especies.id', '=', 'ventas.especie_id')
+                ->select('especies.nombre_especie', 'especies.costo_especie', 'especies.valorVenta', 'especies.cantidad_especie', 'especies.estado_especie', 'inventario_zonas.nombre_inventario', 'zonas.nombre_zona')
+                ->where('especies.estado_especie', '=', $request->estado_especie)
                 ->where('especies.costo_especie', $comparar, $request->costo)
                 ->where('especies.cantidad_especie', $comparar, $request->cantidad)
                 ->get();
